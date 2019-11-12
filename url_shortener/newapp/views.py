@@ -14,7 +14,7 @@ class CreateShortener(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['total_urls'] = Url.urls.total_enlaces()
+        context['total_urls'] = Url.urls.total_urls()
         context['total_redirections'] = Url.urls.total_redirections()['redirections']
         return context
 
@@ -25,7 +25,7 @@ class UrlSite(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['june'] = Url.urls.dates(self.kwargs['pk'])[0]['june']
+        context['june'] = Url.urls.dates(self.kwargs['pk'], )[0]['june']
         return context
 
 

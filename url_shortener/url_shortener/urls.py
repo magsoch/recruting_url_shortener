@@ -18,9 +18,10 @@ from django.urls import path, include
 from newapp.views import CreateShortener, UrlSite, RedirectUrl
 
 app_name = 'newapp'
+
 urlpatterns = [
     path('', CreateShortener.as_view(), name='start'),
-    path('<int:pk>/', UrlSite.as_view(), name='datail'),
+    path('<int:pk>/', UrlSite.as_view(), name='detail'),
     path('<str:short_code>/', RedirectUrl.as_view(), name='redirect'),
 
     path('admin/', admin.site.urls),
